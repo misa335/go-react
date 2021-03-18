@@ -84,9 +84,9 @@ app.get("/api/states/:sName/cities/:cName", async (req, res) => {
   try {
     const { sName } = req.params;
     const { cName } = req.params;
-    const cityInfo = locations.filter(
+    let cityInfo = locations.filter(
       (location) =>
-        location.address.state === sName && location.address.city === cName
+        location.address.state == sName && location.address.city.match(cName)
     );
     res.send(cityInfo);
   } catch (err) {
@@ -133,10 +133,9 @@ app.get("/api/amenities/:aName", async (req, res) => {
 
 app.get("/api/cities/:cName/fuelPrices", (req, res) => {
   const { cName } = req.params;
-  console.log(cName);
   res.send(
     locations
-      .filter((location) => location.address.city === cName)
+      .filter((location) => location.address.city.match(cName))
       .map((a) => a.fuelPrices)[0]
   );
 });

@@ -2,6 +2,7 @@
   <div>
     <h1>{{ this.data.length }} Locations Found</h1>
     <button @click="setFilter">Reset!</button>
+    <!-- <a href="/" @click="setFilter">Clear selections</a> -->
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
   </div>
 </template>
@@ -23,7 +24,6 @@ export default {
   async mounted() {
     const data = await fetch(`/api/states/${this.$props.state}`);
     const parsed = await data.json();
-    console.log(this.$props.state);
     this.data = parsed;
   },
   methods: {

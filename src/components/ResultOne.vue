@@ -2,9 +2,12 @@
   <div class="container">
     <div class="locate">
       <div>
-        <p>Exit 43 North Ft. Myers, FL I-75</p>
+        <p>Exit {{ loc.exitNumber }},{{ loc.highway }}</p>
         <p class="text">Store {{ loc.id }}</p>
-        <p>123 Fake St, Beverly Hills, CA 90210</p>
+        <p>
+          {{ loc.address.address1 }}, {{ loc.address.city }},
+          {{ loc.address.state }} {{ loc.address.zip }}
+        </p>
       </div>
       <p>tel: 888-555-1212</p>
       <p>Fax: 888-555-1212</p>
@@ -12,18 +15,20 @@
       <p>DEF Lanes: 6</p>
       <div class="gasprice">
         <div class="gas">
-          <p>$2.15</p>
-          <p>Unleaded</p>
-          <p>$3.15</p>
-          <p>Unleaded</p>
+          <p>{{ loc.fuelPrices[0].price }}</p>
+          <p>{{ loc.fuelPrices[0].type }}</p>
+          <p>{{ loc.fuelPrices[1].price }}</p>
+          <p>{{ loc.fuelPrices[1].type }}</p>
         </div>
         <div class="gas">
-          <p>$2.64</p>
-          <p>Diesel 815</p>
+          <p>{{ loc.fuelPrices[2].price }}</p>
+          <p>{{ loc.fuelPrices[2].type }}</p>
         </div>
         <div class="gas">
-          <p>$3.95</p>
-          <p>Propane</p>
+          <p>{{ loc.fuelPrices[3].price }}</p>
+          <p>{{ loc.fuelPrices[3].type }}</p>
+          <p>{{ loc.fuelPrices[4].price }}</p>
+          <p>{{ loc.fuelPrices[4].type }}</p>
         </div>
       </div>
     </div>
