@@ -5,7 +5,7 @@ const it = require("mocha").it;
 const fetch = require("node-fetch");
 
 describe("Backend", () => {
-  describe.only("/api/locations", () => {
+  describe("/api/locations", () => {
     it("should return all locations", async () => {
       const req = await fetch(
         "http://localhost:9000/api/locations"
