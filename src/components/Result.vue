@@ -2,6 +2,7 @@
   <div>
     <h1>16 Locations Found</h1>
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
+    <button @click="setFilter">Reset!</button>
   </div>
 </template>
 
@@ -10,10 +11,10 @@ import ResultOne from "./ResultOne";
 
 export default {
   name: "app",
+  props: ["filter", "state"],
   components: {
     ResultOne,
   },
-  props: ["state"],
   data() {
     return {
       data: [],
@@ -23,6 +24,11 @@ export default {
     const data = await fetch(`/api/states/${this.state}/`);
     const parsed = await data.json();
     this.data = parsed;
+  },
+  methods: {
+    setFilter() {
+      this.$emit("set-filter", false);
+    },
   },
 };
 </script>

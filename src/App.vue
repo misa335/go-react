@@ -1,16 +1,22 @@
 <template>
   <div id="app">
     <h1>FlyingK Truck Stops</h1>
-
     <div>
       <div>Locations:</div>
       <Map />
     </div>
     <div>
-      <Search />
-    </div>
-    <div>
-      <Result :state="selectedState" />
+      <Search
+        v-if="filter !== true"
+        v-bind:filter="filter"
+        @set-filter="setFilter"
+      />
+      <Result
+        v-if="filter === true"
+        v-bind:filter="filter"
+        @set-filter="setFilter"
+        :state="selectedState"
+      />
     </div>
   </div>
 </template>
@@ -27,10 +33,14 @@ export default {
     Search,
     Result,
   },
-  data() {
-    return {
-      selectedState: "CA",
-    };
+  data: () => ({
+    filter: false,
+    selectedState: "CA",
+  }),
+  methods: {
+    setFilter: function(filtered) {
+      this.filter = filtered;
+    },
   },
 };
 </script>
