@@ -52,4 +52,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+h1 {
+  border: 3px solid rgba(2, 2, 2, 0.1);
+  box-sizing: border-box;
+}
 </style>
