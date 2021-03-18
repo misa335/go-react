@@ -10,7 +10,7 @@
       <Search />
     </div>
     <div>
-      <Result />
+      <Result :state="selectedState" />
     </div>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
     Map,
     Search,
     Result,
+  },
+  data() {
+    return {
+      selectedState: "CA",
+    };
   },
 };
 </script>

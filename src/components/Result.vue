@@ -1,23 +1,28 @@
 <template>
   <div>
     <h1>16 Locations Found</h1>
-    <ResultOne :loc="data" />
+    <ResultOne v-for="store in data" :loc="store" :key="store.id" />
   </div>
 </template>
 
 <script>
 import ResultOne from "./ResultOne";
-import data from "./sampledata";
 
 export default {
   name: "app",
   components: {
     ResultOne,
   },
+  props: ["state"],
   data() {
     return {
-      data: data[0],
+      data: [],
     };
+  },
+  async mounted() {
+    const data = await fetch(`/api/states/${this.state}/`);
+    const parsed = await data.json();
+    this.data = parsed;
   },
 };
 </script>
