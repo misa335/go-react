@@ -10,7 +10,7 @@ if (process.env.DATABASE_URL) {
 const db = knex({
   client: "pg",
   connection:
-    pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truckstop`,
+    pgconfig || `postgres://postgres:Malazan@127.0.0.1:5432/truckstop`,
   searchPath: "public",
 });
 

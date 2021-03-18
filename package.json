@@ -9,7 +9,12 @@
     "hack": "concurrently \"yarn hack:server\" \"yarn hack:client\"",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "makeMigrate": "knex migrate:make",
+    "rollbackMigrats": "knex migrate:rollback",
+    "runMigrate": "knex migrate:run",
+    "runSeed": "knex seed:run",
+    "makeSeed": "knex seed:make"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -17,7 +22,7 @@
     "dotenv": "^8.2.0",
     "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
-    "knex": "^0.21.12",
+    "knex": "^0.21.19",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
     "vue": "^2.6.12",
