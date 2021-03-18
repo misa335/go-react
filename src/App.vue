@@ -10,11 +10,13 @@
         v-if="filter !== true"
         v-bind:filter="filter"
         @set-filter="setFilter"
+        @pick-state="setState"
       />
       <Result
         v-if="filter === true"
         v-bind:filter="filter"
         @set-filter="setFilter"
+        :state="selectedState"
       />
     </div>
   </div>
@@ -34,11 +36,14 @@ export default {
   },
   data: () => ({
     filter: false,
-    selectedState: "CA",
+    selectedState: "",
   }),
   methods: {
     setFilter: function(filtered) {
       this.filter = filtered;
+    },
+    setState: function(state) {
+      this.selectedState = state;
     },
   },
 };
