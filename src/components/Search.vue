@@ -45,6 +45,7 @@
       <input type="checkbox" name="Wendys" value="" /> Wendy's
       <input type="checkbox" name="others" value="" />
     </section>
+    <input type="button" value="Search" />
   </div>
 </template>
 
