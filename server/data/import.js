@@ -40,6 +40,9 @@ const db = require("../knex.js");
       const restaurants = JSON.stringify(
         location.Site.Concepts.map((concept) => concept.Concept.Name)
       );
+      const { Data } = location.ContactMethods.find(
+        (a) => a.Type.Name === "Main Phone"
+      );
       const locationInfo = {
         id,
         amenities,
@@ -51,6 +54,7 @@ const db = require("../knex.js");
         address,
         exitNumber,
         restaurants,
+        phoneNumber: Data,
       };
       const result = await db("locations").insert(locationInfo);
       console.log(result);
