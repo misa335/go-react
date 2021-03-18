@@ -15,6 +15,7 @@
         v-if="filter === true"
         v-bind:filter="filter"
         @set-filter="setFilter"
+        :state="selectedState"
       />
     </div>
   </div>
@@ -34,6 +35,7 @@ export default {
   },
   data: () => ({
     filter: false,
+    selectedState: "CA",
   }),
   methods: {
     setFilter: function(filtered) {
