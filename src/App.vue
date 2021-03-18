@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>FlyingK Truck Stops</h1>
+
     <div>
-      <Result />
+      <div>Locations:</div>
       <Map />
     </div>
     <div>
       <Search />
     </div>
+    <div>
+      <Result />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
 import Map from "./components/Map";
 import Search from "./components/Search";
 import Result from "./components/Result.vue";
@@ -21,7 +23,6 @@ import Result from "./components/Result.vue";
 export default {
   name: "app",
   components: {
-    HelloWorld,
     Map,
     Search,
     Result,
