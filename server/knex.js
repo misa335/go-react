@@ -1,4 +1,5 @@
 const knex = require("knex");
+require("dotenv").config();
 
 const parse = require("pg-connection-string").parse;
 let pgconfig = null;
