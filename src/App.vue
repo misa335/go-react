@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>FlyingK Truck Stops</h1>
+
     <div>
       <div>Locations:</div>
       <Map />
