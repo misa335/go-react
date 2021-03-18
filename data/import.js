@@ -3,7 +3,7 @@ const db = require("../server/knex.js");
 
 (async () => {
   try {
-    const locations = JSON.parse(fs.readFileSync("./locations.json"));
+    const locations = JSON.parse(fs.readFileSync("./data/locations.json"));
     for (const location of locations) {
       const id = location.Site.SiteId;
       const amenities = JSON.stringify(
