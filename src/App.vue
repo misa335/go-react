@@ -2,9 +2,11 @@
   <div id="app">
     <img src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
-    <Search />
     <div>
       <Map />
+    </div>
+    <div>
+      <Search />
     </div>
   </div>
 </template>
