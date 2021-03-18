@@ -45,13 +45,19 @@
       <input type="checkbox" name="Wendys" value="" /> Wendy's
       <input type="checkbox" name="others" value="" />
     </section>
-    <input type="button" value="Search" />
+    <button @click="setFilter">Search!</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "Search",
+  props: ["filter"],
+  methods: {
+    setFilter() {
+      this.$emit("set-filter", true);
+    },
+  },
 };
 </script>
 
