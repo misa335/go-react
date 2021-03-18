@@ -3,8 +3,8 @@
     <div>Filter Locations by Criteria:</div>
     <section class="locations">
       Locations:
-      <select class="state" name="state">
-        <option value="" selected>State</option>
+      <select class="state" name="state" @change="pickState">
+        <option value="" :selected="true">State</option>
         <option value="CA">CA</option>
         <option value="CO">CO</option>
         <option value="FL">FL</option>
@@ -56,6 +56,9 @@ export default {
   methods: {
     setFilter() {
       this.$emit("set-filter", true);
+    },
+    pickState(e) {
+      this.$emit("pick-state", e.target.value);
     },
   },
 };
