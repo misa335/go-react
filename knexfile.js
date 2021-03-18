@@ -1,9 +1,17 @@
 require("dotenv").config();
+
+const parse = require("pg-connection-string").parse;
+let pgconfig = null;
+if (process.env.DATABASE_URL) {
+  pgconfig = parse(process.env.DATABASE_URL);
+  pgconfig.ssl = { rejectUnauthorized: false };
+}
+
 module.exports = {
   development: {
     client: "pg",
     connection:
-      process.env.DATABASE_URL ||
+      pgconfig ||
       `postgres://${process.env.USER}:${process.env.PASSWORD}@127.0.0.1:5432/truckstop`,
     pool: {
       min: 2,
@@ -11,7 +19,7 @@ module.exports = {
     },
     migrations: {
       tableName: "knex_migrations",
-      directory: "./server/migrations",
+      directory: ".server/migrations",
     },
     seeds: {
       directory: "./data",
@@ -21,8 +29,7 @@ module.exports = {
   staging: {
     client: "pg",
     connection:
-      process.env.DATABASE_URL ||
-      `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+      pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
     pool: {
       min: 2,
       max: 10,
@@ -36,15 +43,14 @@ module.exports = {
   production: {
     client: "pg",
     connection:
-      process.env.DATABASE_URL ||
-      `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
+      pgconfig || `postgres://${process.env.USER}@127.0.0.1:5432/truck_stops`,
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
       tableName: "knex_migrations",
-      directory: "./migrations",
+      directory: "./server/migrations",
     },
   },
 };
