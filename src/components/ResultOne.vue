@@ -1,22 +1,24 @@
 <template>
   <div class="container">
     <div class="locate">
-      <div>
-        <p>Exit {{ loc.exitNumber }},{{ loc.highway }}</p>
+      <div class="header">
         <p class="text">Store {{ loc.id }}</p>
+        <p>Exit {{ loc.exitNumber }},{{ loc.highway }}</p>
         <p>
           {{ loc.address.address1 }}, {{ loc.address.city }},
           {{ loc.address.state }} {{ loc.address.zip }}
         </p>
       </div>
-      <p>tel: 888-555-1212</p>
+      <!-- <p>tel: 888-555-1212</p>
       <p>Fax: 888-555-1212</p>
       <p>Truck Parking: 96</p>
-      <p>DEF Lanes: 6</p>
+      <p>DEF Lanes: 6</p> -->
       <div class="gasprice">
         <div class="gas">
           <p>{{ loc.fuelPrices[0].price }}</p>
           <p>{{ loc.fuelPrices[0].type }}</p>
+        </div>
+        <div class="gas">
           <p>{{ loc.fuelPrices[1].price }}</p>
           <p>{{ loc.fuelPrices[1].type }}</p>
         </div>
@@ -27,6 +29,8 @@
         <div class="gas">
           <p>{{ loc.fuelPrices[3].price }}</p>
           <p>{{ loc.fuelPrices[3].type }}</p>
+        </div>
+        <div class="gas">
           <p>{{ loc.fuelPrices[4].price }}</p>
           <p>{{ loc.fuelPrices[4].type }}</p>
         </div>
@@ -39,23 +43,19 @@
           {{ item }}
         </li>
       </ul>
-      <img
+      <!-- <img
         src="https://badianhotel.com/wp-content/uploads/2020/08/What-are-amenities-destacada.jpg"
-      />
-      <img
-        src="/Users/tanakakakeru/Desktop/codechrysalis/go-react/img/pr.png"
-      />
-    </div>
-    <div class="restaurant">
+      /> -->
       <p>Restaurants:</p>
-      <img
+      <ul>
+        <li v-for="item in loc.restaurants" :key="item">
+          {{ item }}
+        </li>
+      </ul>
+      <!-- <img
         src="https://badianhotel.com/wp-content/uploads/2020/08/What-are-amenities-destacada.jpg"
-      />
-      <img
-        src="/Users/tanakakakeru/Desktop/codechrysalis/go-react/img/pr.png"
-      />
+      /> -->
     </div>
-    <div>{{ loc }}</div>
   </div>
 </template>
 
@@ -68,28 +68,32 @@ export default {
 <style scoped>
 .text {
   float: right;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 900;
 }
 .gas {
   float: right;
+  margin: 10px;
 }
-img {
-  height: 200px;
-  width: 200px;
-}
-.restaurant {
-  float: right;
+
+.header {
+  display: block;
+  border-bottom: black solid 2px;
 }
 
 .container {
   border: solid black 2px;
-  display: flex;
+  display: block;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .gasprice {
   border: solid black 2px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
 }
 
 img {
