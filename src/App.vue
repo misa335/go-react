@@ -7,11 +7,15 @@
     </div>
     <div>
       <Search
-        v-if="filter === false"
+        v-if="filter !== true"
         v-bind:filter="filter"
         @set-filter="setFilter"
       />
-      <Result v-else />
+      <Result
+        v-if="filter === true"
+        v-bind:filter="filter"
+        @set-filter="setFilter"
+      />
     </div>
   </div>
 </template>
@@ -33,9 +37,7 @@ export default {
   }),
   methods: {
     setFilter: function(filtered) {
-      console.log("before:", this.filter);
       this.filter = filtered;
-      console.log("after:", this.filter);
     },
   },
 };
