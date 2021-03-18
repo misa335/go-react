@@ -34,6 +34,7 @@ export default {
   },
   data: () => ({
     filter: false,
+    selectedState: "CA",
   }),
   methods: {
     setFilter: function(filtered) {
