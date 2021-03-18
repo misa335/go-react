@@ -2,7 +2,7 @@
   <div>
     <h1>16 Locations Found</h1>
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
-    <button @click="setFilter">Reset!</button>
+    <a href="/" @click="setFilter">Clear selections</a>
   </div>
 </template>
 
