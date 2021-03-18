@@ -3,6 +3,7 @@
     <img src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <div>
+      <Result />
       <Map />
     </div>
     <div>
@@ -15,6 +16,7 @@
 import HelloWorld from "./components/HelloWorld";
 import Map from "./components/Map";
 import Search from "./components/Search";
+import Result from "./components/Result.vue";
 
 export default {
   name: "app",
@@ -22,6 +24,7 @@ export default {
     HelloWorld,
     Map,
     Search,
+    Result,
   },
 };
 </script>
