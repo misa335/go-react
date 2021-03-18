@@ -1,7 +1,7 @@
 <template>
   <div class="search">
-    <title>Filter Locations by Criteria:</title>
-    <section>
+    <div>Filter Locations by Criteria:</div>
+    <section class="locations">
       Locations:
       <select class="state" name="state">
         <option value="" selected>State</option>
@@ -22,10 +22,29 @@
         <option value="Hwy 287/50">Hwy 287/50</option>
       </select>
     </section>
-    <section>Truck Services:</section>
-    <section>Type:</section>
-    <section>Amenities:</section>
-    <section>Restraunts:</section>
+    <section class="services">
+      Truck Services:
+      <div class="checkservices">
+        <input type="checkbox" name="oil" value="" /> Oil change
+        <input type="checkbox" name="mecha" value="" /> Light Mechanical
+        <input type="checkbox" name="tirepass" value="" /> TirePass
+        <input type="checkbox" name="truckcare" value="" /> Truck Tire Care
+      </div>
+    </section>
+    <section class="type">
+      Type: <input type="checkbox" name="stop" value="" /> Travel Stop
+      <input type="checkbox" name="store" value="" /> Country Store
+    </section>
+    <section class="amenities">
+      Amenities: <input type="checkbox" name="ATM" value="" /> ATM
+      <input type="checkbox" name="Wifi" value="" /> Wifi
+      <input type="checkbox" name="others" value="" />
+    </section>
+    <section class="restaurants">
+      Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
+      <input type="checkbox" name="Wendys" value="" /> Wendy's
+      <input type="checkbox" name="others" value="" />
+    </section>
   </div>
 </template>
 
