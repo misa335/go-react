@@ -49,7 +49,10 @@
         }}</option>
       </select>
     </section>
-    <button @click="setFilter">Search!</button>
+    <div id="searchbtn" @click="setFilter">
+      <img src="./searchButton.png" alt="Search" />
+      <div>Search!</div>
+    </div>
   </div>
 </template>
 
