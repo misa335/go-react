@@ -1,7 +1,7 @@
 <template>
   <GmapMap
-    :zoom="4"
-    :center="{ lat: 25.7392, lng: -104.9903 }"
+    :zoom="map_zoom"
+    :center="map_center"
     map-type-id="terrain"
     style="width: 100%; height: 300px"
   >
@@ -25,6 +25,12 @@ export default {
   computed: {
     locations() {
       return this.$store.state.locations;
+    },
+    map_center() {
+      return this.$store.state.map_center;
+    },
+    map_zoom() {
+      return this.$store.state.map_zoom;
     },
     google: gmapApi,
   },

@@ -12,7 +12,7 @@ import ResultOne from "./ResultOne";
 
 export default {
   name: "app",
-  props: ["filter", "state"],
+  props: ["filter", "state", "city"],
   components: {
     ResultOne,
   },
@@ -22,13 +22,27 @@ export default {
     };
   },
   async mounted() {
-    const data = await fetch(`/api/states/${this.$props.state}`);
+    let data;
+    if (!this.$props.city) {
+      data = await fetch(`/api/states/${this.$props.state}`);
+    } else {
+      data = await fetch(
+        `/api/states/${this.$props.state}/cities/${this.$props.city}`
+      );
+    }
     const parsed = await data.json();
     this.data = parsed;
+    let positions = this.data.map((location) => ({
+      key: location.name,
+      defaultAnimation: 2,
+      position: { lat: location.latitude, lng: location.longitude },
+    }));
+    this.$store.commit("setLocations", positions);
   },
   methods: {
     setFilter() {
       this.$emit("set-filter", false);
+      this.$store.dispatch("loadMarkers");
     },
   },
 };

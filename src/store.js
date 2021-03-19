@@ -6,10 +6,32 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    locations: [{}],
+    locations: [],
+    map_center: { lat: 37, lng: -95 },
+    map_zoom: 4,
   },
   mutations: {
     setLocations(state, locations) {
+      let maxLng = -120;
+      let minLng = 0;
+      let averagelat = 0;
+      let averagelng = 0;
+      locations.forEach((location) => {
+        averagelat += location.position.lat / locations.length;
+        averagelng += location.position.lng / locations.length;
+        location.position.lng > maxLng
+          ? (maxLng = location.position.lng)
+          : maxLng;
+        location.position.lng < minLng
+          ? (minLng = location.position.lng)
+          : minLng;
+      });
+      let diff = maxLng - minLng;
+      diff < 15 ? (state.map_zoom = 6) : (state.map_zoom = 4);
+      diff < 5 ? (state.map_zoom = 8) : state.map_zoom;
+      console.log(diff);
+      console.log(state.map_zoom);
+      state.map_center = { lat: averagelat, lng: averagelng };
       state.locations = locations;
     },
   },
@@ -25,7 +47,6 @@ export default new Vuex.Store({
           key: location.name,
           defaultAnimation: 2,
         }));
-        console.log(markers);
         commit("setLocations", markers);
       } catch (err) {
         console.error(err);
