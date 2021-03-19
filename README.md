@@ -1,8 +1,8 @@
-# FlyingK App Prototype
+## FlyingK App Prototype
 
-### brought to you by Go-React! team
+#### brought to you by Go-React! team
 
-# Introduction on the Application
+## Introduction on the Application
 
 This is a team project created during our study in Code Chrysalis following a given user scenario.
 
@@ -12,7 +12,7 @@ You can access the deployed app from the following link:
 https://truckstops.herokuapp.com/
 _Accessible from desktop or mobile._
 
-# User Manual and Limitation
+## User Manual and Limitation
 
 As a truck driver, one can access a list of near-by truck stops by inputing the **State** or **State and City**. A list of store information and markers on Google Map will be displayed.
 
