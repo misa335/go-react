@@ -43,6 +43,7 @@
     <section class="restaurants">
       Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
       <input type="checkbox" name="Wendys" value="" /> Wendy's
+      <input type="checkbox" name="Subway" value="Subway" /> Subway
       <input type="checkbox" name="others" value="" /> Others
     </section>
     <button @click="setFilter">Search!</button>

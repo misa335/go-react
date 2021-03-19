@@ -36,6 +36,7 @@ export default {
   methods: {
     setFilter() {
       this.$emit("set-filter", false);
+      this.$emit("reset", true);
     },
   },
 };
