@@ -107,4 +107,13 @@ div .space {
   border-radius: 20px;
   box-shadow: 0 0 8px gray;
 }
+
+#searchbtn {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>
