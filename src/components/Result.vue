@@ -1,7 +1,11 @@
 <template>
   <div>
-    <h1>{{ this.data.length }} Locations Found</h1>
-    <button @click="setFilter">Reset!</button>
+    <h1 v-if="this.data.length > 1">{{ this.data.length }} Locations Found</h1>
+    <h1 v-else>{{ this.data.length }} Location Found</h1>
+    <div id="resetbtn" @click="setFilter">
+      <img src="./homeButton.png" alt="Reset" />
+      <div>Reset!</div>
+    </div>
     <!-- <a href="/" @click="setFilter">Clear selections</a> -->
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
   </div>
@@ -50,7 +54,7 @@ export default {
 </script>
 
 <style scoped>
-.text {
+/* .text {
   float: right;
 }
 .gas {
@@ -62,5 +66,13 @@ img {
 }
 .restaurant {
   float: right;
+} */
+#resetbtn {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
