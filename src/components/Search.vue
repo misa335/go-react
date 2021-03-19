@@ -1,51 +1,60 @@
 <template>
   <div class="search">
     <div>Filter Locations by Criteria:</div>
-    <section class="locations">
-      Locations:
-      <select class="state" name="state" @change="pickState">
-        <option value="" :selected="true">State</option>
-        <option v-for="code in stateList" :key="code" :value="code">{{
-          code
-        }}</option>
-      </select>
-      <select class="city" name="city" @change="pickCity">
-        <option value="" selected>City</option>
-        <option v-for="city in cityList" :key="city" :value="city">{{
-          city
-        }}</option>
-      </select>
-      <select class="highway" name="highway">
-        <option value="" selected>Highway</option>
-        <option value="I-40">I-40</option>
-        <option value="Hwy 99">Hwy 99</option>
-        <option value="Hwy 287/50">Hwy 287/50</option>
-      </select>
-    </section>
-    <section class="services">
-      Truck Services:
-      <div class="checkservices">
-        <input type="checkbox" name="oil" value="" /> Oil change
-        <input type="checkbox" name="mecha" value="" /> Light Mechanical
-        <input type="checkbox" name="tirepass" value="" /> TirePass
-        <input type="checkbox" name="truckcare" value="" /> Truck Tire Care
+    <div class="space">
+      <div id="locations">
+        Locations:
+        <select class="state" name="state" @change="pickState">
+          <option value="" :selected="true">State</option>
+          <option v-for="code in stateList" :key="code" :value="code">{{
+            code
+          }}</option>
+        </select>
+        <select class="city" name="city">
+          <option value="" selected>City</option>
+          <option value="Coachella - 207">Coachella - 207</option>
+          <option value="Burlington">Burlington</option>
+          <option value="Hawthorne">Hawthorne</option>
+        </select>
+        <select class="highway" name="highway">
+          <option value="" selected>Highway</option>
+          <option value="I-40">I-40</option>
+          <option value="Hwy 99">Hwy 99</option>
+          <option value="Hwy 287/50">Hwy 287/50</option>
+        </select>
       </div>
-    </section>
-    <section class="type">
-      Type: <input type="checkbox" name="stop" value="" /> Travel Stop
-      <input type="checkbox" name="store" value="" /> Country Store
-    </section>
-    <section class="amenities">
-      Amenities: <input type="checkbox" name="ATM" value="" /> ATM
-      <input type="checkbox" name="Wifi" value="" /> Wifi
-      <input type="checkbox" name="others" value="" /> Others
-    </section>
-    <section class="restaurants">
-      Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
-      <input type="checkbox" name="Wendys" value="" /> Wendy's
-      <input type="checkbox" name="Subway" value="Subway" /> Subway
-      <input type="checkbox" name="others" value="" /> Others
-    </section>
+    </div>
+    <div class="space">
+      <section id="services">
+        Truck Services:
+        <div class="checkservices">
+          <input type="checkbox" name="oil" value="" /> Oil change
+          <input type="checkbox" name="mecha" value="" /> Light Mechanical
+          <input type="checkbox" name="tirepass" value="" /> TirePass
+          <input type="checkbox" name="truckcare" value="" /> Truck Tire Care
+        </div>
+      </section>
+    </div>
+    <div class="space">
+      <section id="type">
+        Type: <input type="checkbox" name="stop" value="" /> Travel Stop
+        <input type="checkbox" name="store" value="" /> Country Store
+      </section>
+    </div>
+    <div class="space">
+      <section id="amenities">
+        Amenities: <input type="checkbox" name="ATM" value="" /> ATM
+        <input type="checkbox" name="Wifi" value="" /> Wifi
+        <input type="checkbox" name="others" value="" /> Others
+      </section>
+    </div>
+    <div class="space">
+      <section id="restaurants">
+        Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
+        <input type="checkbox" name="Wendys" value="" /> Wendy's
+        <input type="checkbox" name="others" value="" /> Others
+      </section>
+    </div>
     <button @click="setFilter">Search!</button>
   </div>
 </template>
@@ -82,4 +91,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+div .space {
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+}
+</style>
