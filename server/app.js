@@ -140,6 +140,16 @@ app.get("/api/cities/:cName/fuelPrices", (req, res) => {
   );
 });
 
+app.get("/api/states/:sName/cities", (req, res) => {
+  const { sName } = req.params;
+  res.send(
+    locations
+      .filter((location) => location.address.state === sName)
+      .map((location) => location.address.city)
+      .filter((v, i, a) => a.indexOf(v) === i)
+  );
+});
+
 // Always return the main index.html, since we are developing a single page application
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "..", "dist", "index.html"));
