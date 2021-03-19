@@ -9,11 +9,11 @@
           code
         }}</option>
       </select>
-      <select class="city" name="city">
+      <select class="city" name="city" @change="pickCity">
         <option value="" selected>City</option>
-        <option value="Coachella - 207">Coachella - 207</option>
-        <option value="Burlington">Burlington</option>
-        <option value="Hawthorne">Hawthorne</option>
+        <option v-for="city in cityList" :key="city" :value="city">{{
+          city
+        }}</option>
       </select>
       <select class="highway" name="highway">
         <option value="" selected>Highway</option>
@@ -38,12 +38,12 @@
     <section class="amenities">
       Amenities: <input type="checkbox" name="ATM" value="" /> ATM
       <input type="checkbox" name="Wifi" value="" /> Wifi
-      <input type="checkbox" name="others" value="" />
+      <input type="checkbox" name="others" value="" /> Others
     </section>
     <section class="restaurants">
       Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
       <input type="checkbox" name="Wendys" value="" /> Wendy's
-      <input type="checkbox" name="others" value="" />
+      <input type="checkbox" name="others" value="" /> Others
     </section>
     <button @click="setFilter">Search!</button>
   </div>
@@ -57,13 +57,21 @@ export default {
     setFilter() {
       this.$emit("set-filter", true);
     },
-    pickState(e) {
+    async pickState(e) {
       this.$emit("pick-state", e.target.value);
+      const cities = await fetch(
+        `/api/states/${e.target.value}/cities`
+      ).then((res) => res.json());
+      this.cityList = cities;
+    },
+    pickCity(e) {
+      this.$emit("pick-city", e.target.value);
     },
   },
   data() {
     return {
       stateList: [],
+      cityList: [],
     };
   },
   async mounted() {
