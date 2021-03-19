@@ -35,6 +35,7 @@ let locations;
       address: JSON.parse(location.address)[0],
       exitNumber: location.exitNumber,
       restaurants: JSON.parse(location.restaurants),
+      phoneNumber: location.phoneNumber,
     };
   });
 })();

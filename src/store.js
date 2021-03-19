@@ -33,6 +33,12 @@ export default new Vuex.Store({
       state.map_center = { lat: averagelat, lng: averagelng };
       state.locations = locations;
     },
+    setMapCenter(state, map_center) {
+      state.map_center = map_center;
+    },
+    setMapZoom(state, map_zoom) {
+      state.map_zoom = map_zoom;
+    },
   },
   actions: {
     async loadMarkers({ commit }) {

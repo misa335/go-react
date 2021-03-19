@@ -42,7 +42,7 @@
       </select>
     </section>
     <section class="restaurants">
-      Restraunts:
+      Restaurants:
       <select>
         <option v-for="restaurant in restaurantsList" :key="restaurant">{{
           restaurant

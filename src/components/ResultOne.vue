@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @click="zoom">
     <div class="locate">
       <div class="header">
         <p class="text">Store {{ loc.id }}</p>
@@ -9,30 +9,15 @@
           {{ loc.address.state }} {{ loc.address.zip }}
         </p>
       </div>
-      <!-- <p>tel: 888-555-1212</p>
-      <p>Fax: 888-555-1212</p>
-      <p>Truck Parking: 96</p>
-      <p>DEF Lanes: 6</p> -->
+      <p>Phone: {{ loc.phoneNumber }}</p>
       <div class="gasprice">
-        <div class="gas">
-          <p>{{ loc.fuelPrices[0].price }}</p>
-          <p class="type">{{ loc.fuelPrices[0].type }}</p>
-        </div>
-        <div class="gas">
-          <p>{{ loc.fuelPrices[1].price }}</p>
-          <p class="type">{{ loc.fuelPrices[1].type }}</p>
-        </div>
-        <div class="gas">
-          <p>{{ loc.fuelPrices[2].price }}</p>
-          <p class="type">{{ loc.fuelPrices[2].type }}</p>
-        </div>
-        <div class="gas">
-          <p>{{ loc.fuelPrices[3].price }}</p>
-          <p class="type">{{ loc.fuelPrices[3].type }}</p>
-        </div>
-        <div class="gas">
-          <p>{{ loc.fuelPrices[4].price }}</p>
-          <p class="type">{{ loc.fuelPrices[4].type }}</p>
+        <div
+          class="gas"
+          v-for="fuelPrice in loc.fuelPrices"
+          :key="fuelPrice.price"
+        >
+          <p>{{ fuelPrice.type }}</p>
+          <p>{{ fuelPrice.price }}</p>
         </div>
       </div>
     </div>
@@ -64,6 +49,13 @@
 <script>
 export default {
   props: ["loc"],
+  methods: {
+    zoom() {
+      let center = { lat: this.loc.latitude, lng: this.loc.longitude };
+      this.$store.commit("setMapZoom", 9);
+      this.$store.commit("setMapCenter", center);
+    },
+  },
 };
 </script>
 
