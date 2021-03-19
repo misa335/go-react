@@ -3,11 +3,11 @@
     <div>Filter Locations by Criteria:</div>
     <section class="locations">
       Locations:
-      <select class="state" name="state">
-        <option value="" selected>State</option>
-        <option value="CA">CA</option>
-        <option value="CO">CO</option>
-        <option value="FL">FL</option>
+      <select class="state" name="state" @change="pickState">
+        <option value="" :selected="true">State</option>
+        <option v-for="code in stateList" :key="code" :value="code">{{
+          code
+        }}</option>
       </select>
       <select class="city" name="city">
         <option value="" selected>City</option>
@@ -57,6 +57,66 @@ export default {
     setFilter() {
       this.$emit("set-filter", true);
     },
+    pickState(e) {
+      this.$emit("pick-state", e.target.value);
+    },
+  },
+  data() {
+    return {
+      stateList: [
+        "AL",
+        "AK",
+        "AZ",
+        "AR",
+        "CA",
+        "CO",
+        "CT",
+        "DE",
+        "DC",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "KY",
+        "LA",
+        "ME",
+        "MD",
+        "MA",
+        "MI",
+        "MN",
+        "MS",
+        "MO",
+        "MT",
+        "NE",
+        "NV",
+        "NH",
+        "NJ",
+        "NM",
+        "NY",
+        "NC",
+        "ND",
+        "OH",
+        "OK",
+        "OR",
+        "PA",
+        "RI",
+        "SC",
+        "SD",
+        "TN",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WA",
+        "WV",
+        "WI",
+        "WY",
+      ],
+    };
   },
 };
 </script>

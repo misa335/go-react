@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>16 Locations Found</h1>
+    <h1>{{ this.data.length }} Locations Found</h1>
+    <button @click="setFilter">Reset!</button>
+    <!-- <a href="/" @click="setFilter">Clear selections</a> -->
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
-    <a href="/" @click="setFilter">Clear selections</a>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ export default {
     };
   },
   async mounted() {
-    const data = await fetch(`/api/states/${this.state}/`);
+    const data = await fetch(`/api/states/${this.$props.state}`);
     const parsed = await data.json();
     this.data = parsed;
   },

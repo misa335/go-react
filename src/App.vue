@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>FlyingK Truck Stops</h1>
+    <h1 class="title">FlyingK Truck Stops</h1>
     <div>
       <div>Locations:</div>
       <Map />
@@ -10,6 +10,7 @@
         v-if="filter !== true"
         v-bind:filter="filter"
         @set-filter="setFilter"
+        @pick-state="setState"
       />
       <Result
         v-if="filter === true"
@@ -34,11 +35,14 @@ export default {
   },
   data: () => ({
     filter: false,
-    selectedState: "CA",
+    selectedState: "",
   }),
   methods: {
     setFilter: function(filtered) {
       this.filter = filtered;
+    },
+    setState: function(state) {
+      this.selectedState = state;
     },
   },
 };
@@ -54,8 +58,9 @@ export default {
   margin-top: 60px;
 }
 
-h1 {
-  border: 3px solid rgba(2, 2, 2, 0.1);
+.title {
+  border: 3px solid black;
   box-sizing: border-box;
+  background-color: rgb(238, 96, 144);
 }
 </style>
