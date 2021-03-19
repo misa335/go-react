@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="amenity">
       <p>Amenities:</p>
       <ul>
         <li v-for="item in loc.amenities" :key="item">
@@ -46,6 +46,8 @@
       <!-- <img
         src="https://badianhotel.com/wp-content/uploads/2020/08/What-are-amenities-destacada.jpg"
       /> -->
+    </div>
+    <div class="restaurant">
       <p>Restaurants:</p>
       <ul>
         <li v-for="item in loc.restaurants" :key="item">
@@ -94,19 +96,21 @@ export default {
   display: flex;
   justify-content: center;
   margin: 10px;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 img {
   width: 50px;
   height: 50px;
 }
+ul {
+  list-style: none;
+}
+.amenity {
+  display: flex;
+}
+.restaurant {
+  display: flex;
+}
 </style>
-<!-- <div v-for="(location, index) in locations" :key="index" class="locate">
-            <div v-text="location"></div>
-            <div>{{location}} Found</div>
-        </div> -->
-<!-- <div class="info">
-    <p>tel:{{tellNumber}}</p>
-    <p>Fax:{{faxNumber}}</p>
-    <p>Truck Parking:{{Truck}}</p>
-    <p>DEF Lanes:{{tellNumber}}</p> -->
