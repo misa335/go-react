@@ -66,8 +66,9 @@ export default {
 }
 
 .title {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   box-sizing: border-box;
   background-color: rgb(238, 96, 144);
+  box-shadow: 0 0 8px gray;
 }
 </style>

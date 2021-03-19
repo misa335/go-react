@@ -55,7 +55,11 @@
         <input type="checkbox" name="others" value="" /> Others
       </section>
     </div>
-    <button @click="setFilter">Search!</button>
+    <!-- <button @click="setFilter">search!</button> -->
+    <div id="searchbtn" @click="setFilter">
+      <img src="./searchButton.png" alt="Search" />
+      <div>Search!</div>
+    </div>
   </div>
 </template>
 
@@ -99,5 +103,16 @@ div .space {
   flex-direction: row;
   justify-content: center;
   background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 8px gray;
+}
+
+#searchbtn {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
