@@ -81,6 +81,7 @@ export default {
 
 .header {
   display: block;
+  padding-top: 5px;
   border-bottom: black solid 2px;
 }
 
@@ -96,16 +97,17 @@ export default {
 .gasprice {
   /* border: solid black 2px; */
   display: flex;
-  /* justify-content: center; */
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 10px;
   font-size: 20px;
   font-weight: 400;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   box-shadow: 0 0 8px gray;
   border-radius: 20px;
 }
 .type {
-  font-size: 5px;
+  font-size: 10px;
 }
 img {
   width: 50px;
@@ -115,9 +117,11 @@ ul {
   list-style: none;
 }
 .amenity {
+  padding-left: 10px;
   display: flex;
 }
 .restaurant {
+  padding-left: 10px;
   display: flex;
 }
 </style>

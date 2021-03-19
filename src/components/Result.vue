@@ -42,6 +42,7 @@ export default {
   methods: {
     setFilter() {
       this.$emit("set-filter", false);
+      this.$emit("reset", true);
       this.$store.dispatch("loadMarkers");
     },
   },

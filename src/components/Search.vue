@@ -10,11 +10,11 @@
             code
           }}</option>
         </select>
-        <select class="city" name="city">
+        <select class="city" name="city" @change="pickCity">
           <option value="" selected>City</option>
-          <option value="Coachella - 207">Coachella - 207</option>
-          <option value="Burlington">Burlington</option>
-          <option value="Hawthorne">Hawthorne</option>
+          <option v-for="city in cityList" :key="city" :value="city">{{
+            city
+          }}</option>
         </select>
         <select class="highway" name="highway">
           <option value="" selected>Highway</option>
