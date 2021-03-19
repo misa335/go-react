@@ -32,10 +32,17 @@ export default {
     }
     const parsed = await data.json();
     this.data = parsed;
+    let positions = this.data.map((location) => ({
+      key: location.name,
+      defaultAnimation: 2,
+      position: { lat: location.latitude, lng: location.longitude },
+    }));
+    this.$store.commit("setLocations", positions);
   },
   methods: {
     setFilter() {
       this.$emit("set-filter", false);
+      this.$store.dispatch("loadMarkers");
     },
   },
 };
