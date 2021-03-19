@@ -12,6 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setLocations(state, locations) {
+      if (locations.length === 0) return;
       let maxLng = -120;
       let minLng = 0;
       let averagelat = 0;
@@ -29,8 +30,6 @@ export default new Vuex.Store({
       let diff = maxLng - minLng;
       diff < 15 ? (state.map_zoom = 6) : (state.map_zoom = 4);
       diff < 5 ? (state.map_zoom = 8) : state.map_zoom;
-      console.log(diff);
-      console.log(state.map_zoom);
       state.map_center = { lat: averagelat, lng: averagelng };
       state.locations = locations;
     },

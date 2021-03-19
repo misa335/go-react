@@ -17,9 +17,9 @@
       </select>
       <select class="highway" name="highway">
         <option value="" selected>Highway</option>
-        <option value="I-40">I-40</option>
-        <option value="Hwy 99">Hwy 99</option>
-        <option value="Hwy 287/50">Hwy 287/50</option>
+        <option v-for="hW in highwayList" :key="hW" :value="hW">{{
+          hW
+        }}</option>
       </select>
     </section>
     <section class="services">
@@ -36,9 +36,10 @@
       <input type="checkbox" name="store" value="" /> Country Store
     </section>
     <section class="amenities">
-      Amenities: <input type="checkbox" name="ATM" value="" /> ATM
-      <input type="checkbox" name="Wifi" value="" /> Wifi
-      <input type="checkbox" name="others" value="" /> Others
+      Amenities:
+      <form v-for="a in amenitiesList" :key="a">
+        <input type="checkbox" :name="a" :value="a" />{{ a }}
+      </form>
     </section>
     <section class="restaurants">
       Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
@@ -72,11 +73,19 @@ export default {
     return {
       stateList: [],
       cityList: [],
+      highwayList: [],
+      amenitiesList: [],
+      restaurantsList: [],
     };
   },
   async mounted() {
     const states = await fetch("/api/states").then((res) => res.json());
     this.stateList = states;
+    const highways = await fetch("/api/highways").then((res) => res.json());
+    this.highwayList = highways;
+    const amenities = await fetch("api/amenities").then((res) => res.json());
+    this.amenitiesList = amenities;
+    console.log(this.amenitiesList);
   },
 };
 </script>

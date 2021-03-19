@@ -150,6 +150,16 @@ app.get("/api/states/:sName/cities", (req, res) => {
   );
 });
 
+app.get("/api/restaurants", (req, res) => {
+  let restaurants = [].concat.apply(
+    [],
+    locations.map((location) => location.restaurants)
+  );
+  restaurants = restaurants.filter((v, i, a) => a.indexOf(v) === i);
+  console.log(restaurants.length);
+  res.send(restaurants);
+});
+
 // Always return the main index.html, since we are developing a single page application
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "..", "dist", "index.html"));
