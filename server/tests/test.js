@@ -18,7 +18,7 @@ describe("Backend", () => {
       const req = await fetch("http://localhost:9000/api/cities").then((res) =>
         res.json()
       );
-      console.log(req);
+      expect(req.length).to.equal(432);
     });
   });
   describe("/api/states", () => {
@@ -26,7 +26,7 @@ describe("Backend", () => {
       const req = await fetch("http://localhost:9000/api/states").then((res) =>
         res.json()
       );
-      console.log(req);
+      expect(req.length).to.equal(41);
     });
   });
   describe("/api/states/:sName", () => {
@@ -34,7 +34,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/states/KS"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.length).to.equal(24);
     });
   });
   describe("/api/states/:sName/cities/:cName", () => {
@@ -42,7 +42,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/states/GA/cities/Waco"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.address.city).to.equal("Waco ");
     });
   });
   describe("/api/highways/:hName", () => {
@@ -50,7 +50,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/highways/I-5"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.length).to.equal(7);
     });
   });
   describe("/api/highways", () => {
@@ -58,7 +58,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/highways"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.length).to.equal(108);
     });
   });
   describe("/api/amenities", () => {
@@ -66,7 +66,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/amenities"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.length).to.equal(11);
     });
   });
   describe("/api/amenities/:aName", () => {
@@ -74,7 +74,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/amenities/Permit Fax"
       ).then((res) => res.json());
-      console.log(req.length);
+      expect(req.length).to.equal(282);
     });
   });
   describe("/api/cities/:cName/fuelPrices", () => {
@@ -82,7 +82,7 @@ describe("Backend", () => {
       const req = await fetch(
         "http://localhost:9000/api/cities/Waco/fuelPrices"
       ).then((res) => res.json());
-      console.log(req);
+      expect(req.length).to.equal(5);
     });
   });
 });
