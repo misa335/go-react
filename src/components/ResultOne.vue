@@ -16,27 +16,27 @@
       <div class="gasprice">
         <div class="gas">
           <p>{{ loc.fuelPrices[0].price }}</p>
-          <p>{{ loc.fuelPrices[0].type }}</p>
+          <p class="type">{{ loc.fuelPrices[0].type }}</p>
         </div>
         <div class="gas">
           <p>{{ loc.fuelPrices[1].price }}</p>
-          <p>{{ loc.fuelPrices[1].type }}</p>
+          <p class="type">{{ loc.fuelPrices[1].type }}</p>
         </div>
         <div class="gas">
           <p>{{ loc.fuelPrices[2].price }}</p>
-          <p>{{ loc.fuelPrices[2].type }}</p>
+          <p class="type">{{ loc.fuelPrices[2].type }}</p>
         </div>
         <div class="gas">
           <p>{{ loc.fuelPrices[3].price }}</p>
-          <p>{{ loc.fuelPrices[3].type }}</p>
+          <p class="type">{{ loc.fuelPrices[3].type }}</p>
         </div>
         <div class="gas">
           <p>{{ loc.fuelPrices[4].price }}</p>
-          <p>{{ loc.fuelPrices[4].type }}</p>
+          <p class="type">{{ loc.fuelPrices[4].type }}</p>
         </div>
       </div>
     </div>
-    <div>
+    <div class="amenity">
       <p>Amenities:</p>
       <ul>
         <li v-for="item in loc.amenities" :key="item">
@@ -46,6 +46,8 @@
       <!-- <img
         src="https://badianhotel.com/wp-content/uploads/2020/08/What-are-amenities-destacada.jpg"
       /> -->
+    </div>
+    <div class="restaurant">
       <p>Restaurants:</p>
       <ul>
         <li v-for="item in loc.restaurants" :key="item">
@@ -83,30 +85,39 @@ export default {
 }
 
 .container {
-  border: solid black 2px;
+  /* border: solid black 2px; */
   display: block;
   flex-wrap: wrap;
   margin: 10px;
+  box-shadow: 0 0 8px gray;
+  border-radius: 20px;
 }
 
 .gasprice {
-  border: solid black 2px;
+  /* border: solid black 2px; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  overflow-x: scroll;
+  box-shadow: 0 0 8px gray;
+  border-radius: 20px;
 }
-
+.type {
+  font-size: 5px;
+}
 img {
   width: 50px;
   height: 50px;
 }
+ul {
+  list-style: none;
+}
+.amenity {
+  display: flex;
+}
+.restaurant {
+  display: flex;
+}
 </style>
-<!-- <div v-for="(location, index) in locations" :key="index" class="locate">
-            <div v-text="location"></div>
-            <div>{{location}} Found</div>
-        </div> -->
-<!-- <div class="info">
-    <p>tel:{{tellNumber}}</p>
-    <p>Fax:{{faxNumber}}</p>
-    <p>Truck Parking:{{Truck}}</p>
-    <p>DEF Lanes:{{tellNumber}}</p> -->

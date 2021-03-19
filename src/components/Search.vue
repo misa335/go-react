@@ -55,7 +55,7 @@
         <input type="checkbox" name="others" value="" /> Others
       </section>
     </div>
-    <button @click="setFilter">Search!</button>
+    <button @click="setFilter">search!</button>
   </div>
 </template>
 
@@ -99,5 +99,7 @@ div .space {
   flex-direction: row;
   justify-content: center;
   background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 8px gray;
 }
 </style>
