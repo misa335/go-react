@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{ this.data.length }} Locations Found</h1>
-    <!-- <button @click="setFilter">Reset!</button> -->
+    <h1 v-if="this.data.length > 1">{{ this.data.length }} Locations Found</h1>
+    <h1 v-else>{{ this.data.length }} Location Found</h1>
     <div id="resetbtn" @click="setFilter">
       <img src="./homeButton.png" alt="Reset" />
       <div>Reset!</div>
@@ -46,6 +46,7 @@ export default {
   methods: {
     setFilter() {
       this.$emit("set-filter", false);
+      this.$emit("reset", true);
       this.$store.dispatch("loadMarkers");
     },
   },

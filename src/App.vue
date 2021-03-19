@@ -17,6 +17,7 @@
         v-if="filter === true"
         v-bind:filter="filter"
         @set-filter="setFilter"
+        @reset="reset"
         :state="selectedState"
         :city="selectedCity"
       />
@@ -50,6 +51,10 @@ export default {
     },
     setCity: function(city) {
       this.selectedCity = city;
+    },
+    reset: function() {
+      this.selectedCity = "";
+      this.selectedState = "";
     },
   },
 };

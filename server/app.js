@@ -35,6 +35,7 @@ let locations;
       address: JSON.parse(location.address)[0],
       exitNumber: location.exitNumber,
       restaurants: JSON.parse(location.restaurants),
+      phoneNumber: location.phoneNumber,
     };
   });
 })();
@@ -148,6 +149,15 @@ app.get("/api/states/:sName/cities", (req, res) => {
       .map((location) => location.address.city)
       .filter((v, i, a) => a.indexOf(v) === i)
   );
+});
+
+app.get("/api/restaurants", (req, res) => {
+  let restaurants = [].concat.apply(
+    [],
+    locations.map((location) => location.restaurants)
+  );
+  restaurants = restaurants.filter((v, i, a) => a.indexOf(v) === i);
+  res.send(restaurants);
 });
 
 // Always return the main index.html, since we are developing a single page application
