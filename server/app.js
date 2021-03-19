@@ -156,7 +156,6 @@ app.get("/api/restaurants", (req, res) => {
     locations.map((location) => location.restaurants)
   );
   restaurants = restaurants.filter((v, i, a) => a.indexOf(v) === i);
-  console.log(restaurants.length);
   res.send(restaurants);
 });
 

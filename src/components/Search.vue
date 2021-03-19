@@ -37,14 +37,17 @@
     </section>
     <section class="amenities">
       Amenities:
-      <form v-for="a in amenitiesList" :key="a">
-        <input type="checkbox" :name="a" :value="a" />{{ a }}
-      </form>
+      <select>
+        <option v-for="a in amenitiesList" :key="a" :value="a">{{ a }}</option>
+      </select>
     </section>
     <section class="restaurants">
-      Restraunts: <input type="checkbox" name="Arbys" value="" /> Arby's
-      <input type="checkbox" name="Wendys" value="" /> Wendy's
-      <input type="checkbox" name="others" value="" /> Others
+      Restraunts:
+      <select>
+        <option v-for="restaurant in restaurantsList" :key="restaurant">{{
+          restaurant
+        }}</option>
+      </select>
     </section>
     <button @click="setFilter">Search!</button>
   </div>
@@ -85,9 +88,23 @@ export default {
     this.highwayList = highways;
     const amenities = await fetch("api/amenities").then((res) => res.json());
     this.amenitiesList = amenities;
-    console.log(this.amenitiesList);
+    const restaurants = await fetch("api/restaurants").then((res) =>
+      res.json()
+    );
+    this.restaurantsList = restaurants;
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+div .space {
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 8px gray;
+}
+</style>
