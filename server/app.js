@@ -146,6 +146,7 @@ app.get("/api/states/:sName/cities", (req, res) => {
     locations
       .filter((location) => location.address.state === sName)
       .map((location) => location.address.city)
+      .filter((v, i, a) => a.indexOf(v) === i)
   );
 });
 
