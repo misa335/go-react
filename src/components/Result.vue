@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>{{ this.data.length }} Locations Found</h1>
+    <h1 v-if="this.data.length > 1">{{ this.data.length }} Locations Found</h1>
+    <h1 v-else>{{ this.data.length }} Location Found</h1>
     <button @click="setFilter">Reset!</button>
-    <!-- <a href="/" @click="setFilter">Clear selections</a> -->
     <ResultOne v-for="store in data" :loc="store" :key="store.id" />
   </div>
 </template>
