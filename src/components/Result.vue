@@ -12,7 +12,7 @@ import ResultOne from "./ResultOne";
 
 export default {
   name: "app",
-  props: ["filter", "state"],
+  props: ["filter", "state", "city"],
   components: {
     ResultOne,
   },
@@ -22,7 +22,14 @@ export default {
     };
   },
   async mounted() {
-    const data = await fetch(`/api/states/${this.$props.state}`);
+    let data;
+    if (!this.$props.city) {
+      data = await fetch(`/api/states/${this.$props.state}`);
+    } else {
+      data = await fetch(
+        `/api/states/${this.$props.state}/cities/${this.$props.city}`
+      );
+    }
     const parsed = await data.json();
     this.data = parsed;
   },

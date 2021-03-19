@@ -11,12 +11,14 @@
         v-bind:filter="filter"
         @set-filter="setFilter"
         @pick-state="setState"
+        @pick-city="setCity"
       />
       <Result
         v-if="filter === true"
         v-bind:filter="filter"
         @set-filter="setFilter"
         :state="selectedState"
+        :city="selectedCity"
       />
     </div>
   </div>
@@ -36,7 +38,8 @@ export default {
   },
   data: () => ({
     filter: false,
-    selectedState: "CA",
+    selectedState: "",
+    selectedCity: "",
   }),
   methods: {
     setFilter: function(filtered) {
@@ -44,6 +47,9 @@ export default {
     },
     setState: function(state) {
       this.selectedState = state;
+    },
+    setCity: function(city) {
+      this.selectedCity = city;
     },
   },
 };

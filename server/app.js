@@ -84,7 +84,7 @@ app.get("/api/states/:sName/cities/:cName", async (req, res) => {
   try {
     const { sName } = req.params;
     const { cName } = req.params;
-    let cityInfo = locations.find(
+    let cityInfo = locations.filter(
       (location) =>
         location.address.state == sName && location.address.city.match(cName)
     );
