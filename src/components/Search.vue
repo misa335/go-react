@@ -59,6 +59,7 @@ export default {
     },
     pickState(e) {
       this.$emit("pick-state", e.target.value);
+      // this.$store.commit('setLocations', this.stateList);
     },
   },
   data() {

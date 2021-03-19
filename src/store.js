@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    locations: [],
+    locations: [{}],
   },
   mutations: {
     setLocations(state, locations) {
@@ -25,6 +25,7 @@ export default new Vuex.Store({
           key: location.name,
           defaultAnimation: 2,
         }));
+        console.log(markers);
         commit("setLocations", markers);
       } catch (err) {
         console.error(err);
